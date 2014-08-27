@@ -1,0 +1,14 @@
+SOURSE_FILES = main.c tas/tas.c tas/tas_log.c tas/tas_stopwatch.c tas/tas_demo_6.c
+LIBS = system.c stdlib.c stdio.c string.c kernel_lib/kernel_lib.c
+INSTRUMENTED = main.c
+ADD_OBJS= $(SOURSE_FILES:.c=.o) $(LIBS:.c=.o) kernel_lib/kernel_arch.o
+LINK_LIBS=
+ADD_CFLAGS = -Ikernel_lib
+ADD_LDFLAGS= -Map map.txt -L $(PLATFORM_DIR)/common
+
+include $(PLATFORM_DIR)/conf/soft.mk
+include kernel_lib/kernel_lib.mk
+
+#in order to compile the binary if it is needed
+all: default
+
