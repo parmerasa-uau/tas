@@ -17,8 +17,8 @@
 // #define demo_0_main_core_0(foo) main_core_0(foo)
 
 // Matrix Multiplication (Data Parallel)
-#include "tas/tas_demo_3.h"
-#define MAIN_CORE_0() demo_3_main_core_0()
+// #include "tas/tas_demo_3.h"
+// #define MAIN_CORE_0() demo_3_main_core_0()
 
 // Nested Patterns
 // #include "tas/tas_demo_2.h"
@@ -36,6 +36,10 @@
 // #include "tas/tas_demo_fft.h"
 // #define MAIN_CORE_0() demo_fft_init()
 
+// 3D Path Planning with LaPlace
+#include "tas/tas_demo_7.h"
+#define MAIN_CORE_0() demo_7_main_core_0()
+
 
 pthread_barrier_t sync_cpu_start;
 pthread_barrier_t sync_cpu_end;
@@ -43,8 +47,6 @@ pthread_mutex_t lock_main_printf = PTHREAD_MUTEX_INITIALIZER;
 
 
 int main(void) {
-	const unsigned int cpu = 0, core = 0, cluster = 0;
-
 	tas_init(WORKERS);
 
 	MAIN_CORE_0();

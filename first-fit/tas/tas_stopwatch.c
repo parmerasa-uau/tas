@@ -80,14 +80,6 @@ long stop_stopwatch() {
 #if TAS_STOPWATCH_ACTIVE == 1
 #if TAS_POSIX == 1
 	end = getTimestamp();
-	/* gettimeofday(&end, NULL);
-
-	long mtime, seconds, useconds;
-
-	seconds = end.tv_sec - start.tv_sec;
-	useconds = end.tv_usec - start.tv_usec;
-
-	mtime = (seconds) * 1000000 + useconds;  */
 
 	return end - start;
 #else
